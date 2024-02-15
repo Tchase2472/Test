@@ -7,7 +7,7 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def create
-    recipe = Recipe.create!(recipe_params)
+    recipe = Recipe.create!(recipes_params())
     if recipe
       render json: recipe
     else
@@ -20,8 +20,8 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def destroy
-    @recipes&.destroy
-    render json: {message: 'Recipe deleted'}
+    @recipe&.destroy
+    render json: { message: 'Recipe deleted' }
   end
   
   private
